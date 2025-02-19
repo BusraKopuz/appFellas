@@ -11,7 +11,7 @@ const Flight = () => {
     <div className="container-fluid m-0 p-3">
       <div className="row">
         {/* Sol tarafta Book Your Flight ve altına FlightCard & FlightFilters */}
-        <div className="col-lg-8 col-12">
+        <div className="col-lg-8 col-md-12">
           <div
             className="col-12 p-4"
             style={{
@@ -199,7 +199,7 @@ const Flight = () => {
         </div>
 
         {/* Sağ tarafta resimler alt alta */}
-        <div className="col-lg-4 col-12 mt-3 d-flex flex-column align-items-end">
+        <div className="col-lg-4 col-12 mt-3 d-flex flex-column align-items-center">
           <div className="d-flex flex-column gap-5 ms-4" style={{ marginTop: "-10px" }}>
             <div className="image-container">
               <img src="images/car.jpg" alt="Car Rental" className="rounded-lg mb-4" />

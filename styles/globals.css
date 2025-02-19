@@ -76,10 +76,15 @@ input{
   font-size:14px;
 }
 
+/* Genel stiller */
+.container-fluid {
+  padding: 0;
+}
+
 .image-container {
   position: relative;
-  width: 300px;
-  height: auto;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .image-container img {
@@ -106,6 +111,53 @@ input{
   font-size: 18px;
   font-weight: bold;
 }
+
+/* Mobile responsive: Küçük ekranlar için */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 15px;
+  }
+
+  .col-lg-8,
+  .col-lg-4 {
+    width: 100%;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+
+  .overlay {
+    font-size: 14px;
+  }
+}
+
+/* Medium ekranlar (Tablet gibi) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .image-container {
+    width: 100%;
+  }
+
+  .overlay {
+    font-size: 16px;
+  }
+}
+
+/* Large ekranlar (Desktop ve daha büyük ekranlar için) */
+@media (min-width: 992px) {
+  .col-lg-8 {
+    width: 66.6667%;  /* 2/3 genişlik */
+  }
+
+  .col-lg-4 {
+    width: 33.3333%;  /* 1/3 genişlik */
+  }
+
+  .image-container {
+    width: 100%;
+  }
+}
+
 
 
 
