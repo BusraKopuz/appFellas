@@ -1,19 +1,19 @@
 import React from "react";
- import { isEmpty } from "lodash";
+import { isEmpty } from "lodash";
 import FlightCard from "./FlightCard";
 
- const FlightList = ({data} ) => {
+const FlightList = ({data}) => {
     if(isEmpty(data)) {
         return null;
     }
 
-    return (   
-       
+    return (
         <div>
-            {data.map((flight) =>(
-                <FlightCard key={flight.id} data={flight}/>
+            {data.map((flight) => (
+                <FlightCard key={flight.id} />
             ))}
         </div>
-        
     )
- }
+}
+
+export default FlightList;

@@ -1,15 +1,16 @@
 import FlightFilters from "@/components/FlightFilters";
 import { useState } from "react";
 import FlightCard from "@/components/FlightCard";
-import useFlightCard from "@/hooks/useFlightCard";
+import useFlightList from "@/hooks/useFlightList";
 
 const Flight = () => {
-  const {data: flights = [] } = useFlightCard();
+  const {data: flights = [] } = useFlightList();
   const [isRoundTrip, setIsRoundTrip] = useState(true);
 
   return (
     <div className="container-fluid m-0 p-3">
       <div className="row">
+        {/* Sol tarafta Book Your Flight ve altına FlightCard & FlightFilters */}
         <div className="col-lg-8 col-12">
           <div
             className="col-12 p-4"
@@ -17,6 +18,7 @@ const Flight = () => {
               background: "white",
               borderRadius: "10px",
               height: "auto",
+              marginLeft: "20px" 
             }}
           >
             <div
@@ -33,7 +35,7 @@ const Flight = () => {
               </p>
               <p>
                 <span style={{ fontSize: "15px" }}>
-                  <button              
+                  <button  
                     style={{
                       backgroundColor: isRoundTrip
                         ? "rgb(68,8,145)"
@@ -49,7 +51,7 @@ const Flight = () => {
                   >
                     Round trip
                   </button>
-                  <button               
+                  <button                
                     style={{
                       backgroundColor: !isRoundTrip
                         ? "rgb(68,8,145)"
@@ -182,89 +184,49 @@ const Flight = () => {
               >
                 Show Flights
               </button>
+              </div>
+            </div>
+
+          {/* FlightCard & FlightFilters yan yana */}
+          <div className="row mt-4">
+            <div className="col-md-6">
+              <FlightCard data={flights} />
+            </div>
+            <div className="col-md-6">
+              <FlightFilters />
             </div>
           </div>
         </div>
+
+        {/* Sağ tarafta resimler alt alta */}
+        <div className="col-lg-4 col-12 mt-3 d-flex flex-column align-items-end">
+          <div className="d-flex flex-column gap-5 ms-4" style={{ marginTop: "-10px" }}>
+            <div className="image-container">
+              <img src="images/car.jpg" alt="Car Rental" className="rounded-lg mb-4" />
+              <div className="overlay">
+                <i className="fa-solid fa-car"></i>
+                <p>Car Rental</p>
+              </div>
+            </div>
+
+            <div className="image-container">
+              <img src="images/hotel.jpg" alt="Hotels" className="rounded-lg mb-4" />
+              <div className="overlay">
+                <i className="fa-solid fa-hotel"></i>
+                <p>Hotels</p>
+              </div>
+            </div>
+
+            <div className="image-container">
+              <img src="images/packages.jpg" alt="Travel Packages" className="rounded-lg" />
+              <div className="overlay">
+                <i className="fa-solid fa-gift"></i>
+                <p>Travel Packages</p>
+              </div>
+            </div>
+          </div>
+        </div>     
       </div>
-
-      {/* FlightCard ve FlightFilters Aynı Satırda */}
-      <div className="container-fluid mt-4 position-relative">
-        <div className="row">
-            {/* Flight Card ve Flight Filters aynı satırda */}
-            <div className="col-lg-6 col-md-7 col-12 d-flex justify-content-between">
-            <div className="col-lg-8 col-12">
-                <FlightCard data={flights} />
-            </div>
-            <div className="col-lg-4 col-12">
-                <FlightFilters />
-            </div>
-            </div>
-
-            {/* Ek Hizmetler kısmı sağda */}
-            <div
-            className="col-lg-3 col-md-4 col-12 mt-4 mt-md-0"
-            style={{ position: "absolute", right: "0", top: "293px" }}
-            >
-            <div className="row">
-                <div className="col-12 image-wrapper mb-1">
-                <img
-                    src="images/car.jpg"
-                    className="card-img-top"
-                    alt="Car Rentals"
-                    style={{ width: "250px", height: "250px",  objectFit: "cover" }}
-                />
-                <p className="p ml-4">
-                    <span>
-                    <i className="fa fa-car"></i>
-                    </span>
-                    <br />
-                    <span style={{ color: "white" }}>
-                    <strong>CAR RENTAL</strong>
-                    </span>
-                </p>
-                </div>
-
-                <div className="col-12 image-wrapper mb-3">
-                <img
-                    src="images/hotel.jpg"
-                    className="card-img-top"
-                    alt="Hotels"
-                    style={{ width: "250px", height: "250px", objectFit: "cover" }}
-                />
-                <p className="p ml-4">
-                    <span>
-                    <i className="fa-solid fa-hotel"></i>
-                    </span>
-                    <br />
-                    <span style={{ color: "white" }}>
-                    <strong>HOTELS</strong>
-                    </span>
-                </p>
-                </div>
-
-                <div className="col-12 image-wrapper mb-3">
-                <img
-                    src="images/packages.jpg"
-                    className="card-img-top"
-                    alt="Travel Packages"
-                    style={{ width: "250px", height: "250px", objectFit: "cover" }}
-                />
-                <p className="p ml-4">
-                    <span>
-                    <i className="fa-solid fa-umbrella-beach"></i>
-                    </span>
-                    <br />
-                    <span style={{ color: "white" }}>
-                    <strong>TRAVEL PACKAGES</strong>
-                    </span>
-                </p>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
-
-
     </div>
   );
 };

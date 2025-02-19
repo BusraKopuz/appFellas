@@ -4,6 +4,17 @@
 
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 
+@layer base {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col {
+    flex: 1;
+  }
+}
+
+
 body {
   @apply h-full overflow-x-hidden;
 }
@@ -29,9 +40,6 @@ input{
 }
 
 
-.img {
-  border-radius: "100%";
-}
 .btnLink {
   color: black;
 }
@@ -43,15 +51,6 @@ input{
 
 .btn {
   outline: none;
-}
-
-.p {
-  position: absolute;
-  bottom: 5%;
-}
-.p span i {
-  font-size: 2rem;
-  color: white;
 }
 
 
@@ -77,28 +76,39 @@ input{
   font-size:14px;
 }
 
-.image-wrapper {
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.image-wrapper:hover img {
-  transform: scale(1.2);
-}
-
-.image-wrapper .card-img-top {
-  border-radius: 20px;
-}
-.image-wrapper {
+.image-container {
   position: relative;
+  width: 300px;
+  height: auto;
 }
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  text-align: left;
+  z-index: 10;
+}
+
+.overlay i {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.overlay p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
 
 
 

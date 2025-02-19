@@ -26,10 +26,10 @@ model User {
 
 model Flight {
   id                String   @id @default(auto()) @map("_id") @db.ObjectId
-  flightNumber      Int   @unique 
+  flightNumber      String 
   flightName        String 
   arrival           String   // Varış havaalanı kodu
-  actualArrival     DateTime? // Gerçek iniş saati
+  actualArrival     DateTime // Gerçek iniş saati
   users            String[]  // Bu uçuşu rezerve eden kullanıcılar
   createdAt        DateTime @default(now()) 
   updatedAt        DateTime @updatedAt 
